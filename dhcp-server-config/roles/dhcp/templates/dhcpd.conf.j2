@@ -11,9 +11,7 @@ subnet {{subnet}} netmask {{netmask}} {
     option domain-search "{{domain}}";
     filename "{{filename}}";
     next-server {{dns_server_ip}};
-    host {{bootstrap_hostname}}.{{cluster}}.{{domain}} { hardware ethernet {{bootstrap_mac}}; fixed-address {{bootstrap_ip}}; option host-name "{{bootstrap_hostname}}"; }
-    host {{master01_hostname}}.{{cluster}}.{{domain}} { hardware ethernet {{master01_mac}}; fixed-address {{master01_ip}}; option host-name "{{master01_hostname}}"; }
-    host {{master02_hostname}}.{{cluster}}.{{domain}} { hardware ethernet {{master02_mac}}; fixed-address {{master02_ip}}; option host-name "{{master02_hostname}}"; }
-    host {{master03_hostname}}.{{cluster}}.{{domain}} { hardware ethernet {{master03_mac}}; fixed-address {{master03_ip}}; option host-name "{{master03_hostname}}"; }
+    host {{server_hostname}}.{{cluster}}.{{domain}} { hardware ethernet {{server_mac}}; fixed-address {{server_ip}}; option host-name "{{server_hostname}}"; }
+    
 
 }
