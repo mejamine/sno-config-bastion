@@ -18,64 +18,58 @@ defaults
 #round robin balancing for OCP kuberntes API server
 #############################################
 
-frontend k8s_api
+frontend sno_k8s_api
     bind *:{{k8s_api_port}}
     mode {{mode}}
-    default_backend k8s_api_backend
-backend k8s_api_backend
+    default_backend sno_k8s_api_backend
+backend sno_k8s_api_backend
     balance     {{balance}}
     mode {{mode}}
-    server  {{bootstrap_hostname}} {{bootstrap_ip}}:{{k8s_api_port}} check     # only in the installation (wait-for bootstrap-complete)
-    server  {{master01_hostname}} {{master01_ip}}:{{k8s_api_port}} check
-    server  {{master02_hostname}} {{master02_ip}}:{{k8s_api_port}} check
-    server  {{master03_hostname}} {{master03_ip}}:{{k8s_api_port}} check
+    server  {{server_hostname}} {{server_ip}}:{{k8s_api_port}} check     
+
 
 ##############################################
 # round robin balancing for RHCOS Machine Config Server
 #############################################
 
-frontend machine_config
+frontend sno_machine_config
     bind *:{{machine_config_port}}
     mode {{mode}}
-    default_backend machine_config_backend
-backend machine_config_backend
+    default_backend sno_machine_config_backend
+backend sno_machine_config_backend
     balance     {{balance}}
     mode {{mode}}
-    server  {{bootstrap_hostname}} {{bootstrap_ip}}:{{machine_config_port}} check    # only in the installation (wait-for bootstrap-complete)
-    server  {{master01_hostname}} {{master01_ip}}:{{machine_config_port}} check
-    server  {{master02_hostname}} {{master02_ip}}:{{machine_config_port}} check
-    server  {{master03_hostname}} {{master03_ip}}:{{machine_config_port}} check
+    server  {{server_hostname}} {{server_ip}}:{{machine_config_port}} check    
+
 
 ##############################################
 # round robin balancing for RHCOS Ingress Secure Port
 ##############################################
 
-frontend ingress_insecure
+frontend sno_ingress_insecure
     bind *:{{ingress_insecure_port}}
     mode {{mode}}
-    default_backend ingress_insecure_backend
-backend ingress_insecure_backend
+    default_backend sno_ingress_insecure_backend
+backend sno_ingress_insecure_backend
     balance     {{balance}}
     mode {{mode}}
-    server  {{master01_hostname}} {{master01_ip}}:{{ingress_insecure_port}} check
-    server  {{master02_hostname}} {{master02_ip}}:{{ingress_insecure_port}} check
-    server  {{master03_hostname}} {{master03_ip}}:{{ingress_insecure_port}} check
+    server  {{server_hostname}} {{server_ip}}:{{ingress_insecure_port}} check
+
 
 
 #################################################
 # round robin balancing for RHCOS Ingress Secure Port
 ###############################################
 
-frontend ingress_secure
+frontend sno_ingress_secure
     bind *:{{ingress_secure_port}}
     mode {{mode}}
-    default_backend ingress_secure_backend
-backend ingress_secure_backend
+    default_backend sno_ingress_secure_backend
+backend sno_ingress_secure_backend
     balance     {{balance}}
     mode {{mode}}
-    server  {{master01_hostname}} {{master01_ip}}:{{ingress_secure_port}} check
-    server  {{master02_hostname}} {{master02_ip}}:{{ingress_secure_port}} check
-    server  {{master03_hostname}} {{master03_ip}}:{{ingress_secure_port}} check
+    server  {{server_hostname}} {{server_ip}}:{{ingress_secure_port}} check
+
 
 #####################################################
 # Exposing HAProxy Statistic Page
