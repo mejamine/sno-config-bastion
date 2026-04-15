@@ -9,7 +9,7 @@ wildcard: apps.sno
 server_hostname: server
 
 server_dig: 10
-server_dig: 11
+server_sno_dig: 11
 
 domain: fedora.test
 forward: forward.test
