@@ -1,0 +1,1 @@
+wget -O discovery_image_sno.iso 'https://api.openshift.com/api/assisted-images/bytoken/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzYyNzc4NTEsInN1YiI6ImM3NGZiNjI3LTc1NjAtNDE1OS1hMDgwLTBiZmYxMWExMTkxMCJ9.2n4HWhOVNSwujchUkB1ouVb1ijoZOX2rbgOsv3A_ibI/4.21/x86_64/full.iso'
